@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-export interface RecipeResponse {
+export interface RecipesResponse {
 	recipes: Recipe[];
 }
 
@@ -17,8 +17,8 @@ const useRecipeSearch = (cuisine: string, intolerances: string, type: string) =>
 			"x-api-key": "a5a34ba98616493eb4f08755e5543e7d"
 		}
 	});
-	const recipeInformation: RecipeResponse = await res.json();
-	return recipeInformation;
+	const recipeResponse: RecipesResponse = await res.json();
+	return recipeResponse.recipes;
 });
 
 export default useRecipeSearch;
