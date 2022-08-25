@@ -10,8 +10,8 @@ export interface Recipe {
 	image: string;
 }
 
-const useRecipeSearch = (cuisine: string, intolerances: string, type: string) => useQuery(["recipeSearch", cuisine, intolerances, type], async () => {
-	const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&intolerances=${intolerances}&type=${type}`;
+const useRecipeSearch = (cuisine: string, intolerance: string, type: string) => useQuery(["recipeSearch", cuisine, intolerance, type], async () => {
+	const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&intolerances=${intolerance}&type=${type}`;
 	const res = await fetch(url, {
 		headers: {
 			"x-api-key": "a5a34ba98616493eb4f08755e5543e7d"
