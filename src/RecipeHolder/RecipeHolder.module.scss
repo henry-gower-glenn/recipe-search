@@ -1,0 +1,20 @@
+.recipes {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+
+	& > div {
+		width: 20%;
+		margin: 32px 2.5%;
+		text-align: center;
+
+		& > img {
+			width: 100%;
+		}
+
+		& > .title {
+			margin: 16px;
+			font-size: 1.5rem;
+		}
+	}
+}

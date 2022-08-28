@@ -17,6 +17,7 @@ const SearchType = (props: SearchTypeProps): JSX.Element => {
 	return (
 		<div className={styles.container}>
 			<select className={styles.type} value={type} onChange={e => setTypeWithCallBack(e.target.value)}>
+				<option value="">--Please choose a type--</option>
 				<option value="main course">Main Course</option>
 				<option value="side dish">Side Dish</option>
 				<option value="dessert">Dessert</option>

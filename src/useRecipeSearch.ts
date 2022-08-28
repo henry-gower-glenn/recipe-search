@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 export interface RecipesResponse {
-	recipes: Recipe[];
+	results: Recipe[];
 }
 
 export interface Recipe {
@@ -11,14 +11,13 @@ export interface Recipe {
 }
 
 const useRecipeSearch = (cuisine: string, intolerance: string, type: string) => useQuery(["recipeSearch", cuisine, intolerance, type], async () => {
-	const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&intolerances=${intolerance}&type=${type}`;
-	const res = await fetch(url, {
-		headers: {
-			"x-api-key": "a5a34ba98616493eb4f08755e5543e7d"
-		}
-	});
-	const recipeResponse: RecipesResponse = await res.json();
-	return recipeResponse.recipes;
+	const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&intolerances=${intolerance}&type=${type}&apiKey=9e1a0ca5a370405f91122c99ffa29aa9`;
+	if (cuisine === "" && intolerance === "" && type === "") {
+		return [];
+	}
+	const res = await fetch(url);
+	const recipeDetails: RecipesResponse = await res.json();
+	return recipeDetails.results;
 });
 
 export default useRecipeSearch;

@@ -17,6 +17,7 @@ const SearchIntolerances = (props: SearchIntolerancesProps): JSX.Element => {
 	return (
 		<div className={styles.container}>
 			<select className={styles.intolerances} value={intolerances} onChange={e => setToleranceWithCallBack(e.target.value)}>
+				<option value="">--Please choose an intolerance--</option>
 				<option value="Dairy">Dairy</option>
 				<option value="Egg">Egg</option>
 				<option value="Gluten">Gluten</option>
