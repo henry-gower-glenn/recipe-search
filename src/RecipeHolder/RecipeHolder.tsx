@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Recipe } from "../useRecipeSearch";
 import styles from "./RecipeHolder.module.scss";
 
@@ -12,9 +13,9 @@ const RecipeHolder = (props: RecipeHolderProps): JSX.Element => {
 		return (
 			<div key={i}>
 				<div className={styles.title}>{x.title}</div>
-				<a href={`https://api.spoonacular.com/recipes/${x.id}/information`}>
+				<Link to={`/recipe/${x.id}`}>
 					<img src={x.image} alt="Image"/>
-				</a>
+				</Link>
 			</div>
 		);
 	});

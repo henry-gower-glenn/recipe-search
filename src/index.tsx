@@ -3,7 +3,8 @@ import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import HomePage from "./HomePage";
 import "./index.scss";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RecipePage from "./RecipePage/RecipePage";
 
 const queryClient = new QueryClient();
 
@@ -14,7 +15,10 @@ root.render(
 	<React.StrictMode>
 		<QueryClientProvider client={queryClient}>
 			<BrowserRouter>
-				<HomePage />
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path={"recipe/:id"} element={<RecipePage />} />
+				</Routes>
 			</BrowserRouter>
 		</QueryClientProvider>
 	</React.StrictMode>

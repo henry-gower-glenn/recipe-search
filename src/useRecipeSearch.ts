@@ -11,7 +11,7 @@ export interface Recipe {
 }
 
 const useRecipeSearch = (cuisine: string, intolerance: string, type: string) => useQuery(["recipeSearch", cuisine, intolerance, type], async () => {
-	const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&intolerances=${intolerance}&type=${type}&apiKey=9e1a0ca5a370405f91122c99ffa29aa9`;
+	const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&intolerances=${intolerance}&type=${type}&apiKey=9e1a0ca5a370405f91122c99ffa29aa9&number=100`;
 	if (cuisine === "" && intolerance === "" && type === "") {
 		return [];
 	}
